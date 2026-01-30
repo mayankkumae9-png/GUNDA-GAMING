@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUNDA GAMING - Play Free Fire Tournaments & Win Cash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0e17;
+            --secondary-bg: #0f1525;
+            --accent-red: #ff2e4c;
+            --accent-blue: #00b8ff;
+            --accent-glow: 0 0 15px;
+            --text-light: #ffffff;
+            --text-gray: #b0b7c3;
+            --card-bg: rgba(15, 21, 37, 0.8);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 46, 76, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--accent-red);
+            text-shadow: var(--accent-glow) var(--accent-red);
+        }
+
+        .logo-text {
+            background: linear-gradient(to right, var(--accent-red), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-red);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 46, 76, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 184, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--text-light), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subheadline {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent-red), #ff0055);
+            color: white;
+            padding: 18px 35px;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(255, 46, 76, 0.4);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 46, 76, 0.6);
+        }
+
+        .cta-button i {
+            font-size: 1.5rem;
+        }
+
+        /* Banner Image Section */
+        .banner-section {
+            padding: 0 0 100px;
+            position: relative;
+        }
+
+        .tournament-banner {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0f1525, #1a1f3a);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--accent-red), var(--accent-blue)) 1;
+        }
+
+        .banner-content {
+            padding: 60px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(15, 21, 37, 0.9));
+        }
+
+        .banner-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff2e4c, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 46, 76, 0.5);
+        }
+
+        .banner-subtitle {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .banner-highlight {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+
+        .banner-tagline {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .banner-cta {
+            margin-top: 30px;
+        }
+
+        .prize-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-red), #ff0055);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(255, 46, 76, 0.5);
+        }
+
+        .live-streaming {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-blue), #0088ff);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            box-shadow: 0 10px 20px rgba(0, 184, 255, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            color: var(--accent-red);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 46, 76, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-red);
+            box-shadow: 0 10px 25px rgba(255, 46, 76, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            color: #00ff88;
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            color: #ffaa00;
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            color: #aa00ff;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .feature-desc {
+            color: var(--text-gray);
+        }
+
+        /* How to Install Section */
+        .install-steps {
+            padding: 100px 0;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(255, 46, 76, 0.5);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .step-desc {
+            color: var(--text-gray);
+        }
+
+        /* Live Stats Section */
+        .live-stats {
+            padding: 80px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent-red), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            padding: 70px 0 30px;
+            background-color: #080c15;
+            border-top: 1px solid rgba(255, 46, 76, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo .logo {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .footer-tagline {
+            color: var(--text-gray);
+            max-width: 300px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .footer-nav {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-red);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Sticky Download Button */
+        .sticky-download {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .sticky-download .cta-button {
+            padding: 15px 25px;
+            font-size: 1rem;
+            box-shadow: 0 5px 20px rgba(255, 46, 76, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 20px rgba(255, 46, 76, 0.4);
+            }
+            50% {
+                box-shadow: 0 5px 25px rgba(255, 46, 76, 0.8);
+            }
+            100% {
+                box-shadow: 0 5px 20px rgba(255, 46, 76, 0.4);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-headline {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .banner-title {
+                font-size: 3rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 2rem;
+            }
+            
+            .banner-highlight {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                position: relative;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-bg);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid rgba(255, 46, 76, 0.2);
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-headline {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .banner-title {
+                font-size: 2.2rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .banner-highlight {
+                font-size: 2.2rem;
+            }
+            
+            .banner-tagline {
+                font-size: 1.5rem;
+            }
+            
+            .prize-badge {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+            
+            .live-streaming {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .sticky-download {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .sticky-download .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-headline {
+                font-size: 1.8rem;
+            }
+            
+            .banner-section {
+                padding: 0 0 80px;
+            }
+            
+            .banner-content {
+                padding: 40px 20px;
+            }
+            
+            .banner-title {
+                font-size: 1.8rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .banner-highlight {
+                font-size: 1.8rem;
+            }
+            
+            .banner-tagline {
+                font-size: 1.2rem;
+            }
+            
+            .step {
+                min-width: 100%;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .blink {
+            animation: blink 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-fire-flame-curved logo-icon"></i>
+                    <span class="logo-text">GUNDA GAMING</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#install" class="nav-link">How to Install</a>
+                    <a href="#stats" class="nav-link">Live Stats</a>
+                    <a href="#footer" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-headline">Play Free Fire Tournaments & Win Real Cash Daily!</h1>
+                    <p class="hero-subheadline">Join India's #1 Trusted Esports Platform. Daily Matches, Instant Withdrawals.</p>
+                    <a href="https://www.mediafire.com/file/34z7jibeb5utmu6/GUNDA+GAMING.apk/file" target="_blank" class="cta-button" id="downloadBtn">
+                        <i class="fab fa-android"></i> DOWNLOAD APP NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Banner Section -->
+    <section class="banner-section">
+        <div class="container">
+            <div class="tournament-banner fade-in">
+                <div class="banner-content">
+                    <div class="banner-title">FREEFIRE TOURNAMENT</div>
+                    <div class="banner-subtitle">BATTLE OF SURVIVORS!</div>
+                    <div class="banner-highlight">1,00,000</div>
+                    <div class="banner-tagline">PRIZE POOL</div>
+                    <div class="banner-cta">
+                        <div class="prize-badge blink">REGISTER NOW!</div>
+                        <div class="live-streaming">LIVE STREAMING</div>
+                    </div>
+                    <div class="banner-tagline" style="margin-top: 20px; font-size: 2rem;">BIGGEST ESPORTS EVENT!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose <span>GUNDA GAMING?</span></h2>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <i class="fas fa-trophy feature-icon"></i>
+                    <h3 class="feature-title">Daily Matches</h3>
+                    <p class="feature-desc">Solo, Duo, Squad matches every hour. Compete in tournaments 24/7 and win big!</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3 class="feature-title">Instant Withdraw</h3>
+                    <p class="feature-desc">Get your winnings instantly via UPI, Paytm, Google Pay. No delays, no hassles.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3 class="feature-title">Safe & Secure</h3>
+                    <p class="feature-desc">100% Anti-Cheat system with fair play guarantee. Your account and money are protected.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <i class="fas fa-headset feature-icon"></i>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-desc">Dedicated customer service team available round the clock to assist you with any issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Install Section -->
+    <section class="install-steps" id="install">
+        <div class="container">
+            <h2 class="section-title">Install in <span>3 Easy Steps</span></h2>
+            
+            <div class="steps-container">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Download APK</h3>
+                    <p class="step-desc">Click the download button to get the GUNDA GAMING APK file on your device.</p>
+                </div>
+                
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Allow Installation</h3>
+                    <p class="step-desc">Enable "Install from Unknown Sources" in your device settings to install the app.</p>
+                </div>
+                
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Install & Play</h3>
+                    <p class="step-desc">Open the APK file, install the app, register and start playing tournaments!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section class="live-stats" id="stats">
+        <div class="container">
+            <h2 class="section-title">Our <span>Community Stats</span></h2>
+            
+            <div class="stats-container">
+                <div class="stat-box fade-in">
+                    <div class="stat-number" id="usersCount">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                
+                <div class="stat-box fade-in">
+                    <div class="stat-number" id="matchesCount">0</div>
+                    <div class="stat-label">Matches Played</div>
+                </div>
+                
+                <div class="stat-box fade-in">
+                    <div class="stat-number" id="winningsCount">₹0</div>
+                    <div class="stat-label">Total Winnings Paid</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <i class="fas fa-fire-flame-curved logo-icon"></i>
+                        <span class="logo-text">GUNDA GAMING</span>
+                    </a>
+                    <p class="footer-tagline">India's fastest growing esports platform for Free Fire gamers. Play tournaments, win cash daily!</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/free_fire_tournament_9919?igsh=MWllaWZ1anQydXNveA==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#install">How to Install</a></li>
+                        <li><a href="#stats">Live Stats</a></li>
+                        <li><a href="#footer">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 GUNDA GAMING. All rights reserved. Free Fire is a registered trademark of Garena International.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Download Button -->
+    <div class="sticky-download">
+        <a href="https://www.mediafire.com/file/34z7jibeb5utmu6/GUNDA+GAMING.apk/file" target="_blank" class="cta-button">
+            <i class="fab fa-android"></i> DOWNLOAD
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Animated counters for stats
+        function animateCounter(element, target, prefix = '', suffix = '') {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+            }, 20);
+        }
+        
+        // Initialize counters when section comes into view
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    
+                    if (target.id === 'stats') {
+                        // Animate the stats counters
+                        setTimeout(() => {
+                            animateCounter(document.getElementById('usersCount'), 10500, '', '+');
+                            animateCounter(document.getElementById('matchesCount'), 85000, '', '+');
+                            animateCounter(document.getElementById('winningsCount'), 500000, '₹', '+');
+                        }, 300);
+                        
+                        // Stop observing after animation
+                        observer.unobserve(target);
+                    }
+                    
+                    // Add fade-in animation to elements when they come into view
+                    target.querySelectorAll('.fade-in').forEach(el => {
+                        el.style.animationDelay = '0.3s';
+                        el.style.opacity = '1';
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Download button action - Open MediaFire link
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            // Link already opens in new tab via target="_blank"
+            console.log('Download button clicked - redirecting to MediaFire');
+        });
+    </script>
+</body>
+</html>
